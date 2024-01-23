@@ -1,6 +1,7 @@
 import logoImg from './assets/react-core-concepts.png';
 import componentImage from './assets/components.png';
 import {CORE_CONCEPTS} from './data.js';
+import TabButton from './components/TabButton.jsx';
 const reactDescriptions= ['Fundamental', 'Crucial', 'Core' ]
 function getRandomInt(max){
     return Math.floor(Math.random()*(max+1));
@@ -45,23 +46,25 @@ function App() {
                     image={CORE_CONCEPTS[0].image}
                 />
                 <CoreConcepts 
-                    title={CORE_CONCEPTS[1].title}
-                    description={CORE_CONCEPTS[1].description}
-                    image={CORE_CONCEPTS[1].image}
+                   {...CORE_CONCEPTS[1]}
+                />
+                <CoreConcepts {...CORE_CONCEPTS[2]}
                 />
                 <CoreConcepts 
-                    title={CORE_CONCEPTS[2].title}
-                    description={CORE_CONCEPTS[2].description}
-                    image={CORE_CONCEPTS[2].image}
-                />
-                <CoreConcepts 
-                    title={CORE_CONCEPTS[3].title}
-                    description={CORE_CONCEPTS[3].description}
-                    image={CORE_CONCEPTS[3].image}
+                   {...CORE_CONCEPTS[3]}
                 />
              
             </ul>
         </section>
+        <section id='examples'>
+                <h2>Examples</h2>
+                <menu>
+                    <TabButton>Components</TabButton>
+                    <TabButton children='JSX'/>
+                    <TabButton>Props</TabButton>
+                    <TabButton>State</TabButton>
+                </menu>
+            </section>
       </main>
     </div>
   );
