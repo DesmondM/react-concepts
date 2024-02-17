@@ -33,6 +33,12 @@ function CoreConcepts(props){
 
 
 function App() {
+    let tabContent = 'Please click a button'
+    function handleSelect(selectedButton){
+        console.log(`Selected tab: ${selectedButton}`)
+        tabContent = `You selected the ${selectedButton} tab`
+    }   
+
   return (
     <div>
       <Header />
@@ -59,11 +65,12 @@ function App() {
         <section id='examples'>
                 <h2>Examples</h2>
                 <menu>
-                    <TabButton>Components</TabButton>
+                    <TabButton onSelect={()=>handleSelect('jsx')}>Components</TabButton>
                     <TabButton children='JSX'/>
-                    <TabButton>Props</TabButton>
-                    <TabButton>State</TabButton>
+                    <TabButton onSelect={()=>handleSelect('jsx')}>Props</TabButton>
+                    <TabButton onSelect={()=>handleSelect('jsx')}>State</TabButton>
                 </menu>
+                {tabContent}
             </section>
       </main>
     </div>
