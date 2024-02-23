@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import logoImg from './assets/react-core-concepts.png';
 import componentImage from './assets/components.png';
 import {CORE_CONCEPTS} from './data.js';
@@ -33,8 +34,11 @@ function CoreConcepts(props){
 
 
 function App() {
+    const [selectedTopic, setSelectedTopic] = useState('Please click a button')
     let tabContent = 'Please click a button'
+    
     function handleSelect(selectedButton){
+        setSelectedTopic(selectedButton)
         console.log(`Selected tab: ${selectedButton}`)
         tabContent = `You selected the ${selectedButton} tab`
     }   
@@ -70,7 +74,7 @@ function App() {
                     <TabButton onSelect={()=>handleSelect('jsx')}>Props</TabButton>
                     <TabButton onSelect={()=>handleSelect('jsx')}>State</TabButton>
                 </menu>
-                {tabContent}
+                {selectedTopic}
             </section>
       </main>
     </div>
